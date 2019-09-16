@@ -1,5 +1,5 @@
 let correctAnswers = 0;
-let questionNumber = 3
+let questionNumber = 10;
 let timeLeft = 3000;
 var problemTimer = '';
 var solution = 0;
@@ -9,9 +9,10 @@ document.getElementById("firstNumber").innerHTML = 0
 document.getElementById("secondNumber").innerHTML = 0
 
 function start() {
+    setCursor();
     timeLeft = 3000;
     correctAnswers = 0;
-    questionNumber = 3;
+    questionNumber = 10;
     document.getElementById("questionsleft").innerHTML = questionNumber
     document.getElementById("correctanswers").innerHTML = correctAnswers
     clearInterval(problemTimer);
@@ -28,7 +29,7 @@ function checkTime() {
         questionNumber--;
         if (questionNumber == 0) {
             displayResults();
-            document.getElementById("timer").innerHTML = "No More Questions!";
+            document.getElementById("timer").innerHTML = "No More Questions.";
         }
     }
     document.getElementById("questionsleft").innerHTML = questionNumber
@@ -57,10 +58,14 @@ function answerSubmitted() {
     questionNumber--;
     document.getElementById("correctanswers").innerHTML = correctAnswers
     timeLeft = 3000;
+    setCursor();
 
     //no more questions
     if (questionNumber <= 0) {
-        if (questionNumber == 0) displayResults();
+        if (questionNumber == 0) {
+            document.getElementById("timer").innerHTML = "No More Questions.";
+            displayResults();
+        }
     } else {
         document.getElementById("questionsleft").innerHTML = questionNumber;
         newProblem();
@@ -70,8 +75,12 @@ function answerSubmitted() {
 
 function displayResults() {
     clearInterval(problemTimer);
-    var newParagraph = document.createElement('p');
-    newParagraph.textContent = 'You answered ' + correctAnswers + ' out of 10 questions correctly.';
-    // Altering the DOM
-    document.body.appendChild(newParagraph);
+    message = 'You answered ' + correctAnswers + ' out of 10 questions correctly.';
+    alert(message)
+
+}
+
+function setCursor() {
+    document.getElementById('answer').value = ''
+    document.getElementById("answer").focus();
 }
