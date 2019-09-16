@@ -56,18 +56,20 @@ function answerSubmitted() {
     answer = document.getElementById('answer').value;
     if (answer == solution) correctAnswers++;
     questionNumber--;
-    document.getElementById("correctanswers").innerHTML = correctAnswers
     timeLeft = 3000;
     setCursor();
 
     //no more questions
     if (questionNumber <= 0) {
         if (questionNumber == 0) {
+            document.getElementById("questionsleft").innerHTML = questionNumber;
+            document.getElementById("correctanswers").innerHTML = correctAnswers;
             document.getElementById("timer").innerHTML = "No More Questions.";
             displayResults();
         }
     } else {
         document.getElementById("questionsleft").innerHTML = questionNumber;
+        document.getElementById("correctanswers").innerHTML = correctAnswers
         newProblem();
     }
 
@@ -76,7 +78,7 @@ function answerSubmitted() {
 function displayResults() {
     clearInterval(problemTimer);
     message = 'You answered ' + correctAnswers + ' out of 10 questions correctly.';
-    alert(message)
+    alert(message);
 
 }
 
