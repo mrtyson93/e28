@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Multiplication Table Practice</title>
+</head>
+
+<body>
+    <script src='script.js' defer></script>
+    <h1>Multiplication Table Practice!</h1>
+    <p>You will have 10 basic multiplication problems to answer, and 3 seconds to complete each question!</p>
+    <p>You will be scored out of these 10 problems, you can start a new game by pressing Start at anytime. Good luck!
+    </p>
+
+    <button type="button" id="begin" onclick="start()">Start</button>
+    <br><br>
+
+    <p>
+        <label>Questions left: </label>
+        <label id="questionsleft"><b></b></label>
+        <br>
+        <label>Correct Answers: </label>
+        <label id="correctanswers"><b></b></label>
+    </p>
+    <br>
+
+    <div>
+        <label id="firstNumber"></label>
+        <label><b>&times</b></label>
+        <label id="secondNumber"></label>
+        <text>=</text>
+        <input type='text' name='name' autofocus="autofocus" id='answer'>
+        <button id='submit' onclick="answerSubmitted()">Submit</button>
+    </div>
+    <br>
+
+    <div>
+        <label id="timer"></label>
+    </div>
+
+</body>
+
+</html>
