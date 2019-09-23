@@ -28,6 +28,7 @@
             <button v-on:click="guesses.push(guess)">Guess</button>
             <ul>
                 <li v-for='thisGuess in guesses'>{{ thisGuess }}</li>
+                <p>{{ guesses }}</p>
             </ul>
         </div>
     </div>

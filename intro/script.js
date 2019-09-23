@@ -3,6 +3,7 @@ let app = new Vue({
     data: {
         'playerName': null,
         'guess': null,
-        'guesses': []
+        'guesses': [],
+        isAdmin: true
     }
 });
