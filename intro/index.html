@@ -47,6 +47,17 @@
             <li v-for='value in guessesDetailed'>{{ value.guess }} was too {{ value.result }} </li>
         </ul>
 
+        <!-- <div v-if='gameType === "numeric"'>
+            <label>Enter a guess between 1 and 10</label>
+            <input type='text' placeholder='Your numeric guess' key='numberGuess'>
+        </div>
+        <div v-else>
+            <label>Enter a guess between A and Z</label>
+            <input type='text' placeholder='Your alphabetic guess' key='letterGuess'>
+        </div>
+
+        <button v-on:click='gameType = (gameType == "numeric") ? "alphabetic" : "numeric"'>Toggle game mode</button> -->
+
     </div>
 </body>
 
