@@ -4,6 +4,30 @@ let app = new Vue({
         'playerName': null,
         'guess': null,
         'guesses': [],
-        isAdmin: true
+        'results': null,
+        'settings': {
+            'max': 200,
+            'type': 'numeric',
+            'guessLimit': 15
+        },
+        'answer': 55,
+        'guessesDetailed': [{
+                guess: 15,
+                result: 'low'
+            },
+            {
+                guess: 60,
+                result: 'high'
+            },
+            {
+                guess: 50,
+                result: 'low'
+            }
+        ]
+    },
+    methods: {
+        submitGuess() {
+            this.guesses.push(this.guess);
+        }
     }
 });

@@ -21,16 +21,32 @@
     <div id='app' v-cloak>
         <div>
             <label>What’s your name? <input type='text' v-model='playerName'></label>
-            <p v-if='playerName != null'>Player: {{ playerName }}</p>
+            <p v-if='playerName'>Player: {{ playerName }}</p>
+            <p v-else>Enter your player name to begin the game.</p>
         </div>
-        <div>
-            <label>Guess the number <input type='text' v-model='guess'></label>
-            <button v-on:click="guesses.push(guess)">Guess</button>
+
+        <template v-if='results'>
+            <p v-if='results == "tie"'>It was a tie</p>
+            <p v-else-if='results == "win"'>You won!</p>
+            <p v-else-if='results'>You lost to the computer.</p>
+        </template>
+
+        <div v-show='playerName'>
+            <label>Guess the number <input type='text' v-model='guess' @keyup.enter='submitGuess'></label>
+            <button v-on:click='submitGuess'>Guess</button>
             <ul>
                 <li v-for='thisGuess in guesses'>{{ thisGuess }}</li>
-                <p>{{ guesses }}</p>
             </ul>
         </div>
+
+        <ul>
+            <li v-for='(setting, property) in settings'>{{ property }} : {{ setting }}</li>
+        </ul>
+
+        <ul>
+            <li v-for='value in guessesDetailed'>{{ value.guess }} was too {{ value.result }} </li>
+        </ul>
+
     </div>
 </body>
 
