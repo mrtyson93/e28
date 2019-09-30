@@ -1,8 +1,11 @@
 let app = new Vue({
     el: '#app',
     data: {
-        'playerName': null,
-        'guess': null,
-        'guesses': []
+        'started': null
+    },
+    methods: {
+        begin() {
+            this.started = true;
+        }
     }
 });
