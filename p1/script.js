@@ -15,9 +15,13 @@ let app = new Vue({
         begin() {
             this.newProblem();
             this.started = true;
+            this.$nextTick(() => {
+                this.$refs.answer.focus();
+            })
             this.timeLeft = this.time;
             clearInterval(this.problemTimer);
             this.problemTimer = setInterval(this.checkTime, 100);
+
         },
         checkTime() {
             this.timeLeft -= 100;

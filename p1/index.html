@@ -57,14 +57,14 @@
             <label>4 Seconds</label>
             <br><br>
 
-            <button v-show='!started' @click='begin'>Begin</button>
+            <button v-show='!started' @click='begin()'>Begin</button>
         </div>
 
         <div v-else='started'>
             <p><b>Time Left: {{ roundedTime }}</b></p>
             <div class='factors'>
                 &nbsp &nbsp {{ factor1 }}<br><u>&times {{ factor2 }}</u><br>
-                <input class='answer' v-model.number.trim="answer" type='text'>
+                <input class='answer' ref="answer" v-model.number.trim="answer" type='text'>
             </div>
             <br>
             <div>
