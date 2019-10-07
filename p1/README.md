@@ -2,7 +2,7 @@
 
 # Project 1
 + By: Mitchell Tyson
-+ Production URL: <http://p1.yourdomain.com>
++ Production URL: <http://p1.mrtyson.me>
 
 ## Outside resources
 * [Helped create countdown timer](https://www.w3schools.com/howto/howto_js_countdown.asp)
