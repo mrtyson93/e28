@@ -17,6 +17,10 @@
             padding-left: 15px;
         }
 
+        .padtop {
+            padding-top: 10px;
+        }
+
         .factors {
             font-weight: bold;
             font-size: 25px;
@@ -30,6 +34,21 @@
             height: 25px;
             text-align: center;
             font-size: 22px;
+        }
+
+        .submit {
+            position: relative;
+            left: 10px;
+        }
+
+        .time {
+            color: red;
+        }
+
+        .results {
+            font-family: Tahoma, Geneva, sans-serif;
+            font-weight: bold;
+            font-size: 17px;
         }
     </style>
 
@@ -57,17 +76,21 @@
             <label>4 Seconds</label>
             <br><br>
 
-            <button v-show='!started' @click='begin()'>Begin</button>
+            <button @click='begin'>Begin</button>
         </div>
 
-        <div v-else='started'>
-            <p><b>Time Left: {{ roundedTime }}</b></p>
+        <div v-else>
+            <p>Time Left: <b class="time">{{ roundedTime }}</b></p>
             <div class='factors'>
                 &nbsp &nbsp {{ factor1 }}<br><u>&times {{ factor2 }}</u><br>
                 <input class='answer' ref="answer" v-model.number.trim="answer" type='text'>
             </div>
             <br>
-            <div>
+            <button v-if='!gameOver' class='submit' @click='answerSubmitted'>Submit</button>
+            <label v-else class='results'>Game over, you answered {{ correctAnswers }} out of 10 questions
+                correctly!</label>
+            <br>
+            <div class="padtop">
                 Questions Left: <b>{{ questionNumber }}</b><br>
                 Correct Answers: <b>{{ correctAnswers }}</b><br>
                 Incorrect Answers: <b>{{ incorrectAnswers }}</b>

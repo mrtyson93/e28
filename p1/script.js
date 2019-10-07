@@ -10,14 +10,14 @@ let app = new Vue({
         questionNumber: 10,
         correctAnswers: 0,
         problemTimer: null,
+        gameOver: false,
     },
     methods: {
         begin() {
             this.newProblem();
             this.started = true;
-            this.$nextTick(() => {
-                this.$refs.answer.focus();
-            })
+            this.gameOver = false;
+            this.setCursor();
             this.timeLeft = this.time;
             clearInterval(this.problemTimer);
             this.problemTimer = setInterval(this.checkTime, 100);
@@ -29,14 +29,32 @@ let app = new Vue({
             if (this.timeLeft == 0) {
                 this.questionNumber--;
                 this.timeLeft = this.time;
-                if (this.questionNumber == 0) {
-                    alert('ok');
-                }
+                this.newProblem();
+                if (this.questionNumber == 0) this.endGame();
             }
         },
         newProblem() {
             this.factor1 = Math.floor(Math.random() * 10);
             this.factor2 = Math.floor(Math.random() * 10);
+        },
+        answerSubmitted() {
+            if (this.answer == (this.factor1 * this.factor2)) this.correctAnswers++;
+            this.questionNumber--;
+            this.timeLeft = this.time;
+            this.setCursor();
+            if (this.questionNumber == 0) {
+                this.endGame();
+            } else this.newProblem();
+        },
+        setCursor() {
+            this.$nextTick(() => {
+                this.$refs.answer.focus();
+            })
+            this.answer = null;
+        },
+        endGame() {
+            clearInterval(this.problemTimer);
+            this.gameOver = true;
         }
     },
     computed: {
