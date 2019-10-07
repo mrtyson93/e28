@@ -17,20 +17,18 @@ let app = new Vue({
             this.newProblem();
             this.started = true;
             this.gameOver = false;
+            this.questionNumber = 10;
+            this.correctAnswers = 0;
             this.setCursor();
             this.timeLeft = this.time;
             clearInterval(this.problemTimer);
             this.problemTimer = setInterval(this.checkTime, 100);
-
         },
         checkTime() {
             this.timeLeft -= 100;
             //timer ran out on question
             if (this.timeLeft == 0) {
-                this.questionNumber--;
-                this.timeLeft = this.time;
-                this.newProblem();
-                if (this.questionNumber == 0) this.endGame();
+                this.answerSubmitted();
             }
         },
         newProblem() {
@@ -55,6 +53,7 @@ let app = new Vue({
         endGame() {
             clearInterval(this.problemTimer);
             this.gameOver = true;
+            this.timeLeft = 0;
         }
     },
     computed: {
