@@ -13,8 +13,24 @@
             display: none
         }
 
+        .padleft {
+            padding-left: 15px;
+        }
+
         .factors {
             font-weight: bold;
+            font-size: 25px;
+            font-family: Tahoma, Geneva, sans-serif;
+            position: relative;
+            left: 10px;
+            padding-top: 20px;
+        }
+
+        .answer {
+            width: 40px;
+            height: 25px;
+            text-align: center;
+            font-size: 22px;
         }
     </style>
 
@@ -28,7 +44,7 @@
     <p>The game will place your cursor in the answer box, and you can submit an answer by pressing enter. Good luck!</p>
     <br>
 
-    <div id='app' v-cloak>
+    <div id='app' class="padleft" v-cloak>
 
         <p><b>Choose time per question:</b></p>
         <input type='radio' value=2 v-model.number='time'>
@@ -39,13 +55,17 @@
 
         <input type='radio' value=4 v-model.number='time'>
         <label>4 Seconds</label>
-        <br>
+        <br><br>
 
         <button @click='begin'>Begin</button>
+        <br>
 
         <div v-show='started'>
-            <div class='factors'>{{ factor1 }} {{ factor2 }}</div>
-            <input v-model="answer" type='text'>
+            <div class='factors'>
+                &nbsp &nbsp {{ factor1 }}<br><u>&times {{ factor2 }}</u><br>
+                <input class='answer' v-model.number.trim="answer" type='text'>
+            </div>
+
 
         </div>
     </div>
