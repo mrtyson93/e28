@@ -1,10 +1,11 @@
 let app = new Vue({
     el: '#app',
     data: {
-        'started': null,
+        'started': false,
         'answer': null,
-        'factor1': null,
-        'factor2': null
+        'factor1': 5,
+        'factor2': 8,
+        'time': 3,
     },
     methods: {
         begin() {

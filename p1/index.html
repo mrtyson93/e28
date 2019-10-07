@@ -12,17 +12,41 @@
         [v-cloak] {
             display: none
         }
+
+        .factors {
+            font-weight: bold;
+        }
     </style>
 
 </head>
 
 <body>
-    <h1>Mutlipliation Table Practice</h1>
-    <div id='app'>
-        <button v-on:click='begin'>Begin</button>
+    <h1><u>Mutlipliation Table Practice</u></h1>
+    <p>You will have 10 basic multiplication problems to answer, and a limited time to answer each question.</p>
+    <p>You will be scored out of these 10 problems. To begin the game, select the time per question you would like, and
+        press "Begin."</p>
+    <p>The game will place your cursor in the answer box, and you can submit an answer by pressing enter. Good luck!</p>
+    <br>
+
+    <div id='app' v-cloak>
+
+        <p><b>Choose time per question:</b></p>
+        <input type='radio' value=2 v-model.number='time'>
+        <label>2 Seconds</label>
+
+        <input type='radio' value=3 v-model.number='time' checked="checked">
+        <label>3 Seconds</label>
+
+        <input type='radio' value=4 v-model.number='time'>
+        <label>4 Seconds</label>
+        <br>
+
+        <button @click='begin'>Begin</button>
 
         <div v-show='started'>
+            <div class='factors'>{{ factor1 }} {{ factor2 }}</div>
             <input v-model="answer" type='text'>
+
         </div>
     </div>
 </body>
