@@ -58,7 +58,7 @@ let app = new Vue({
     },
     computed: {
         roundedTime: function () {
-            return this.timeLeft / 1000;
+            return Number.parseFloat(this.timeLeft / 1000).toFixed(1);
         },
         incorrectAnswers: function () {
             return 10 - this.questionNumber - this.correctAnswers;
