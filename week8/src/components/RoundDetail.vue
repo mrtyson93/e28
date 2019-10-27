@@ -1,7 +1,7 @@
 <template>
     <div v-bind:class="{ winner : winner == 'Player'}">
         <ul>
-            <li>Round #: {{ number }}</li>
+            <li>Round Number: {{ number }}</li>
             <li>Winner: {{ winner }}</li>
             <li>
                 <slot name="choice"></slot>
