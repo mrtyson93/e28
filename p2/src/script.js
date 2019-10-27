@@ -1,5 +1,11 @@
+import Vue from 'vue';
+import GameRules from './components/GameRules.vue';
+
 let app = new Vue({
     el: '#app',
+    components: {
+        'game-rules': GameRules
+    },
     data: {
         started: false,
         answer: null,
