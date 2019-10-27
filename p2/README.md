@@ -4,9 +4,8 @@
 + Production URL alt: <http://p2-alt.yourdomain.com> *Remove if not applicable*
 
 ## Build strategy
-*Put an x in the build strategy you used. Put an x in each if you tackled both.*
 + [ ] Integrated
-+ [ ] Comprehensive
++ [x] Comprehensive
 
 ## Outside resources
 *Your list of outside resources go here.*
