@@ -1,7 +1,7 @@
 # Project 2 Alt
 + By: Mitchell Tyson
 + Production URL: <http://p2.mrtyson.me>
-+ Production URL alt: <http://p2-alt.mrtyson.me> *Remove if not applicable*
++ Production URL alt: <http://p2-alt.mrtyson.me>
 
 ## Build strategy
 + [X] Integrated
