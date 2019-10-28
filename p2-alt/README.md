@@ -1,24 +1,14 @@
-# p2-alt
+# Project 2 Alt
++ By: Mitchell Tyson
++ Production URL: <http://p2.mrtyson.me>
++ Production URL alt: <http://p2-alt.mrtyson.me> *Remove if not applicable*
 
-## Project setup
-```
-npm install
-```
+## Build strategy
++ [X] Integrated
++ [x] Comprehensive
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Outside resources
+* [Passing events from child to parent](https://stackoverflow.com/questions/43677645/vuejs-how-to-get-data-from-vue-component)
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Notes for instructor
+First production URL is the integrated app. The second alt URL is the comprehensive app.
