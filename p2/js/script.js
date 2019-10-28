@@ -99,11 +99,69 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
   },
   template: "#game-rules"
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./src/components/LevelPicker.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/LevelPicker.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      timePicker: 3000
+    };
+  },
+  watch: {
+    timePicker: {
+      handler: function handler() {
+        this.$emit("newtimepick", this.timePicker);
+      }
+    }
+  },
+  template: "#level-picker"
 });
 
 /***/ }),
@@ -591,9 +649,155 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("hello")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("p", [
+        _vm._v(
+          "\n    You will have 10 basic multiplication problems to answer, and a limited time to answer each question.\n    "
+        ),
+        _c("br"),
+        _vm._v(
+          "You will be scored out of these 10 problems. To begin the game, select the time per question you would like,\n    then\n    press Begin.\n    "
+        ),
+        _c("br"),
+        _vm._v(
+          "The game will place your cursor in the answer box, you can submit an answer by pressing enter,\n    "
+        ),
+        _c("br"),
+        _vm._v(
+          "or if time runs out, whatever is in the input box will be submitted. Good luck!\n  "
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/components/LevelPicker.vue?vue&type=template&id=39399b9c&":
+/*!*****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/components/LevelPicker.vue?vue&type=template&id=39399b9c& ***!
+  \*****************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model.number",
+          value: _vm.timePicker,
+          expression: "timePicker",
+          modifiers: { number: true }
+        }
+      ],
+      attrs: { type: "radio", value: "1000" },
+      domProps: { checked: _vm._q(_vm.timePicker, _vm._n("1000")) },
+      on: {
+        change: function($event) {
+          _vm.timePicker = _vm._n("1000")
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c("label", [_vm._v("1 Second")]),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model.number",
+          value: _vm.timePicker,
+          expression: "timePicker",
+          modifiers: { number: true }
+        }
+      ],
+      attrs: { type: "radio", value: "2000" },
+      domProps: { checked: _vm._q(_vm.timePicker, _vm._n("2000")) },
+      on: {
+        change: function($event) {
+          _vm.timePicker = _vm._n("2000")
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c("label", [_vm._v("2 Seconds")]),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model.number",
+          value: _vm.timePicker,
+          expression: "timePicker",
+          modifiers: { number: true }
+        }
+      ],
+      attrs: { type: "radio", value: "3000", checked: "checked" },
+      domProps: { checked: _vm._q(_vm.timePicker, _vm._n("3000")) },
+      on: {
+        change: function($event) {
+          _vm.timePicker = _vm._n("3000")
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c("label", [_vm._v("3 Seconds")]),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model.number",
+          value: _vm.timePicker,
+          expression: "timePicker",
+          modifiers: { number: true }
+        }
+      ],
+      attrs: { type: "radio", value: "4000" },
+      domProps: { checked: _vm._q(_vm.timePicker, _vm._n("4000")) },
+      on: {
+        change: function($event) {
+          _vm.timePicker = _vm._n("4000")
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c("label", [_vm._v("4 Seconds")]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("br")
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Choose time per question:")])])
+  }
+]
 render._withStripped = true
 
 
@@ -12772,6 +12976,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/components/LevelPicker.vue":
+/*!****************************************!*\
+  !*** ./src/components/LevelPicker.vue ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _LevelPicker_vue_vue_type_template_id_39399b9c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LevelPicker.vue?vue&type=template&id=39399b9c& */ "./src/components/LevelPicker.vue?vue&type=template&id=39399b9c&");
+/* harmony import */ var _LevelPicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LevelPicker.vue?vue&type=script&lang=js& */ "./src/components/LevelPicker.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _LevelPicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _LevelPicker_vue_vue_type_template_id_39399b9c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _LevelPicker_vue_vue_type_template_id_39399b9c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "src/components/LevelPicker.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./src/components/LevelPicker.vue?vue&type=script&lang=js&":
+/*!*****************************************************************!*\
+  !*** ./src/components/LevelPicker.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LevelPicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/babel-loader/lib??ref--4-0!../../node_modules/vue-loader/lib??vue-loader-options!./LevelPicker.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./src/components/LevelPicker.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LevelPicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./src/components/LevelPicker.vue?vue&type=template&id=39399b9c&":
+/*!***********************************************************************!*\
+  !*** ./src/components/LevelPicker.vue?vue&type=template&id=39399b9c& ***!
+  \***********************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LevelPicker_vue_vue_type_template_id_39399b9c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../node_modules/vue-loader/lib??vue-loader-options!./LevelPicker.vue?vue&type=template&id=39399b9c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/components/LevelPicker.vue?vue&type=template&id=39399b9c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LevelPicker_vue_vue_type_template_id_39399b9c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LevelPicker_vue_vue_type_template_id_39399b9c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./src/script.js":
 /*!***********************!*\
   !*** ./src/script.js ***!
@@ -12784,12 +13057,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_GameRules_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/GameRules.vue */ "./src/components/GameRules.vue");
+/* harmony import */ var _components_LevelPicker_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/LevelPicker.vue */ "./src/components/LevelPicker.vue");
+
 
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   components: {
-    'game-rules': _components_GameRules_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    'game-rules': _components_GameRules_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    'level-picker': _components_LevelPicker_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: {
     started: false,
@@ -12848,6 +13124,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       clearInterval(this.problemTimer);
       this.gameOver = true;
       this.timeLeft = 0;
+    },
+    handleTimeChange: function handleTimeChange(time) {
+      this.time = time;
     }
   },
   computed: {

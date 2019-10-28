@@ -1,10 +1,12 @@
 import Vue from 'vue';
 import GameRules from './components/GameRules.vue';
+import LevelPicker from './components/LevelPicker.vue';
 
 let app = new Vue({
     el: '#app',
     components: {
-        'game-rules': GameRules
+        'game-rules': GameRules,
+        'level-picker': LevelPicker
     },
     data: {
         started: false,
@@ -60,6 +62,9 @@ let app = new Vue({
             clearInterval(this.problemTimer);
             this.gameOver = true;
             this.timeLeft = 0;
+        },
+        handleTimeChange: function (time) {
+            this.time = time;
         }
     },
     computed: {

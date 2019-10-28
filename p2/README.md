@@ -8,4 +8,4 @@
 + [x] Comprehensive
 
 ## Outside resources
-*Your list of outside resources go here.*
+* [Passing events from child to parent](https://stackoverflow.com/questions/43677645/vuejs-how-to-get-data-from-vue-component)

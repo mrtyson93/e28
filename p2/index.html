@@ -54,33 +54,15 @@
 </head>
 
 <body>
-    <h1><u>Mutlipliation Table Practice</u></h1>
-    <p>You will have 10 basic multiplication problems to answer, and a limited time to answer each question.<br>
-        You will be scored out of these 10 problems. To begin the game, select the time per question you would like,
-        then
-        press Begin.<br>
-        The game will place your cursor in the answer box, you can submit an answer by pressing enter,<br>
-        or if time runs out, whatever is in the input box will be submitted. Good luck!</p>
-
+    <h1>
+        <u>Mutlipliation Table Practice</u>
+    </h1>
     <div id='app' class="padleft" v-cloak>
 
         <game-rules></game-rules>
 
         <div v-if='!started'>
-            <p><b>Choose time per question:</b></p>
-            <input type='radio' value=1000 v-model.number='time'>
-            <label>1 Second</label>
-
-            <input type='radio' value=2000 v-model.number='time'>
-            <label>2 Seconds</label>
-
-            <input type='radio' value=3000 v-model.number='time' checked="checked">
-            <label>3 Seconds</label>
-
-            <input type='radio' value=4000 v-model.number='time'>
-            <label>4 Seconds</label>
-            <br><br>
-
+            <level-picker @newtimepick="handleTimeChange($event)"></level-picker>
             <button @click='begin'>Begin!</button>
         </div>
 
@@ -97,20 +79,7 @@
                 <div class='results'>Game over, you answered {{ correctAnswers }} out of 10 questions
                     correctly!</div>
                 <div>
-                    <p><b>Choose time per question:</b></p>
-                    <input type='radio' value=1000 v-model.number='time'>
-                    <label>1 Second</label>
-
-                    <input type='radio' value=2000 v-model.number='time'>
-                    <label>2 Seconds</label>
-
-                    <input type='radio' value=3000 v-model.number='time' checked="checked">
-                    <label>3 Seconds</label>
-
-                    <input type='radio' value=4000 v-model.number='time'>
-                    <label>4 Seconds</label>
-                    <br><br>
-
+                    <level-picker @newtimepick="handleTimeChange($event)"></level-picker>
                     <button @click='begin'>Play Again!</button>
                 </div>
             </div>
