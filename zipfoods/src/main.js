@@ -19,6 +19,11 @@ const routes = [{
   {
     path: '/categories',
     component: ShowCategories
+  },
+  {
+    path: '/discounted',
+    name: 'discounted',
+    component: ShowCategories
   }
 ]
 

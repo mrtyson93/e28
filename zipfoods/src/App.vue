@@ -6,7 +6,9 @@
             <li v-for='link in links' :key='link'>
                 <router-link exact :to='paths[link]'>{{ link }}</router-link>
             </li>
+            <li><router-link :to="{ name: 'discounted' }">Discounted Products</router-link></li>
         </ul>
+        
     </nav>
     <router-view></router-view>
   </div>
