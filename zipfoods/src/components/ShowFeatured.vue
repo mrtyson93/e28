@@ -2,10 +2,7 @@
   <div id='featured'>
     <h2>Featured Products</h2>
     <ul class='cleanList'>
-      <li
-        v-for='product in featuredProducts'
-        :key='product.id'
-      >{{ product.name }}</li>
+      <li v-for='product in featuredProducts' :key='product.id'>{{ product.name }}</li>
     </ul>
   </div>
 </template>
