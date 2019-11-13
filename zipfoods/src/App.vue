@@ -1,10 +1,20 @@
 <template>
   <div id="app">
-    <img id="logo" alt="Vue logo" src="./assets/images/zipfoods-logo.png" />
+    <img
+      id="logo"
+      alt="Vue logo"
+      src="./assets/images/zipfoods-logo.png"
+    />
     <nav>
       <ul>
-        <li v-for="link in links" :key="link">
-          <router-link exact :to="{ name: link}">{{ link }}</router-link>
+        <li
+          v-for="link in links"
+          :key="link"
+        >
+          <router-link
+            exact
+            :to="{ name: link }"
+          >{{ link }}</router-link>
         </li>
       </ul>
     </nav>
@@ -22,7 +32,8 @@ export default {
       products: products,
       links: ["home", "products", "categories"]
     };
-  }
+  },
+  mounted() {}
 };
 </script>
 
