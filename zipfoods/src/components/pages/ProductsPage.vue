@@ -11,7 +11,7 @@
 
 <script>
 import ShowProduct from "./../ShowProduct.vue";
-const axios = require("axios");
+import * as app from "./../../app.js";
 
 export default {
   name: "ProductsPage",
@@ -22,13 +22,9 @@ export default {
     };
   },
   mounted() {
-    axios
-      .get(
-        "https://my-json-server.typicode.com/mrtyson93/e28-zipfoods-api/products"
-      )
-      .then(response => {
-        this.products = response.data;
-      });
+    app.axios.get(app.config.api + "products").then(response => {
+      this.products = response.data;
+    });
   }
 };
 </script>

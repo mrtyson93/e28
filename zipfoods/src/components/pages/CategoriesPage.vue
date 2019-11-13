@@ -11,7 +11,7 @@
 </template>
 
 <script>
-const axios = require("axios");
+import * as app from "./../../app.js";
 
 export default {
   name: "CategoriesPage",
@@ -31,14 +31,10 @@ export default {
     }
   },
   mounted() {
-    axios
-      .get(
-        "https://my-json-server.typicode.com/mrtyson93/e28-zipfoods-api/products"
-      )
-      .then(response => {
-        this.products = response.data;
-        this.loadCategories();
-      });
+    app.axios.get(app.config.api + "products").then(response => {
+      this.products = response.data;
+      this.loadCategories();
+    });
   }
 };
 </script>

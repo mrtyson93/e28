@@ -13,8 +13,11 @@
         >
           <router-link
             exact
-            :to="{ name: link }"
-          >{{ link }}</router-link>
+            :to='{ name: link }'
+          >
+            {{ link }}
+            <span v-if='link == "cart"'>({{ sharedState.cartCount }})</span>
+          </router-link>
         </li>
       </ul>
     </nav>
@@ -23,17 +26,20 @@
 </template>
 
 <script>
-import { products } from "./products.js";
+import * as app from "./app.js";
 
 export default {
   name: "app",
   data: function() {
     return {
-      products: products,
-      links: ["home", "products", "categories"]
+      links: ["home", "products", "categories", "cart"],
+      sharedState: app.store
     };
   },
-  mounted() {}
+  mounted() {
+    this.cart = new app.Cart();
+    app.store.cartCount = this.cart.count();
+  }
 };
 </script>
 
