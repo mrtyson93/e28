@@ -1,20 +1,17 @@
 <template>
   <div>
     <h2>Categories</h2>
-    <ul class='cleanList'>
-      <li
-        v-for='(category, id) in categories'
-        :key='id'
-      >{{ category }}</li>
+    <ul class="cleanList">
+      <li v-for="(category, id) in categories" :key="id">{{ category }}</li>
     </ul>
   </div>
 </template>
 
 <script>
-import { products } from "./../products.js";
+import { products } from "./../../products.js";
 
 export default {
-  name: "",
+  name: "CategoriesPage",
   computed: {
     categories: function() {
       let categories = this.products.map(product => product.categories);
