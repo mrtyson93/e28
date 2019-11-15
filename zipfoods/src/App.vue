@@ -1,22 +1,12 @@
 <template>
   <div id="app">
-    <img
-      id="logo"
-      alt="Vue logo"
-      src="./assets/images/zipfoods-logo.png"
-    />
+    <img id="logo" alt="Vue logo" src="./assets/images/zipfoods-logo.png" />
     <nav>
       <ul>
-        <li
-          v-for="link in links"
-          :key="link"
-        >
-          <router-link
-            exact
-            :to='{ name: link }'
-          >
+        <li v-for="link in links" :key="link">
+          <router-link exact :to="{ name: link }">
             {{ link }}
-            <span v-if='link == "cart"'>({{ sharedState.cartCount }})</span>
+            <span v-if="link == 'cart'">({{ sharedState.cartCount }})</span>
           </router-link>
         </li>
       </ul>
@@ -26,13 +16,13 @@
 </template>
 
 <script>
-import * as app from "./app.js";
+import * as app from './app.js';
 
 export default {
-  name: "app",
+  name: 'app',
   data: function() {
     return {
-      links: ["home", "products", "categories", "cart"],
+      links: ['home', 'products', 'categories', 'cart'],
       sharedState: app.store
     };
   },
@@ -43,6 +33,6 @@ export default {
 };
 </script>
 
-<style lang='scss'>
-@import "./assets/css/zipfoods.scss";
+<style lang="scss">
+@import './assets/css/zipfoods.scss';
 </style>
