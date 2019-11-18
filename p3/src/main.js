@@ -7,6 +7,7 @@ import BreweryPage from './components/pages/BreweryPage.vue';
 import EventsPage from './components/pages/EventsPage.vue';
 import HomePage from './components/pages/HomePage.vue';
 import vuetify from './plugins/vuetify';
+import 'v-autocomplete/dist/v-autocomplete.css'
 
 Vue.use(VueRouter);
 Vue.use(Autocomplete)

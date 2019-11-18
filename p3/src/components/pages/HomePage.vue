@@ -1,83 +1,25 @@
 <template>
-  <div>
-    <v-autocomplete
-      label="Test custom filters"
-      :items="states"
-      :filter="activeFilter"
-      filled
-      rounded
-    ></v-autocomplete>
-
-    {{ model }}
+  <div id="test">
+    <br />
+    <v-autocomplete label="States" :items="states" rounded></v-autocomplete>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomePage',
   data() {
     return {
-      model: null,
       states: [
-        'Alabama',
-        'Alaska',
-        'American Samoa',
-        'Arizona',
-        'Arkansas',
-        'California',
-        'Colorado',
-        'Connecticut',
-        'Delaware',
-        'District of Columbia',
-        'Federated States of Micronesia',
-        'Florida',
-        'Georgia',
-        'Guam',
-        'Hawaii',
-        'Idaho',
-        'Illinois',
-        'Indiana',
-        'Iowa',
-        'Kansas',
-        'Kentucky',
-        'Louisiana',
-        'Maine',
-        'Marshall Islands',
-        'Maryland',
-        'Massachusetts',
-        'Michigan',
-        'Minnesota',
-        'Mississippi',
-        'Missouri',
-        'Montana',
-        'Nebraska',
-        'Nevada',
-        'New Hampshire',
-        'New Jersey',
-        'New Mexico',
-        'New York',
-        'North Carolina',
-        'North Dakota',
-        'Northern Mariana Islands',
-        'Ohio',
-        'Oklahoma',
-        'Oregon',
-        'Palau',
-        'Pennsylvania',
-        'Puerto Rico',
-        'Rhode Island',
-        'South Carolina',
-        'South Dakota',
-        'Tennessee',
-        'Texas',
-        'Utah',
-        'Vermont',
-        'Virgin Island',
-        'Virginia',
-        'Washington',
-        'West Virginia',
-        'Wisconsin',
-        'Wyoming'
+        'Autocompletes',
+        'Comboboxes',
+        'Forms',
+        'Inputs',
+        'Overflow Buttons',
+        'Selects',
+        'Selection Controls',
+        'Sliders',
+        'Textareas',
+        'Text Fields'
       ]
     };
   }
