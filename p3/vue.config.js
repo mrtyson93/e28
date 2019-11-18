@@ -1,5 +1,8 @@
 module.exports = {
-    devServer: {
-        host: 'p3.loc'
-    }
+  "devServer": {
+    "host": "p3.loc"
+  },
+  "transpileDependencies": [
+    "vuetify"
+  ]
 }

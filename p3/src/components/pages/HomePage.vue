@@ -15,7 +15,6 @@
 <script>
 export default {
   name: 'HomePage',
-  vuetify: new Vuetify(),
   data() {
     return {
       model: null,

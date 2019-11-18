@@ -6,6 +6,7 @@ import WeatherPage from './components/pages/WeatherPage.vue';
 import BreweryPage from './components/pages/BreweryPage.vue';
 import EventsPage from './components/pages/EventsPage.vue';
 import HomePage from './components/pages/HomePage.vue';
+import vuetify from './plugins/vuetify';
 
 Vue.use(VueRouter);
 Vue.use(Autocomplete)
@@ -39,5 +40,6 @@ const router = new VueRouter({
 });
 new Vue({
   router: router,
+  vuetify,
   render: h => h(App)
 }).$mount('#app');
