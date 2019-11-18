@@ -1,16 +1,17 @@
 import Vue from 'vue';
 import App from './App.vue';
 import VueRouter from 'vue-router';
+import Autocomplete from 'v-autocomplete'
 import WeatherPage from './components/pages/WeatherPage.vue';
 import BreweryPage from './components/pages/BreweryPage.vue';
 import EventsPage from './components/pages/EventsPage.vue';
 import HomePage from './components/pages/HomePage.vue';
 
 Vue.use(VueRouter);
+Vue.use(Autocomplete)
 Vue.config.productionTip = false;
 
-const routes = [
-  {
+const routes = [{
     path: '/',
     component: HomePage,
     name: 'Home'
