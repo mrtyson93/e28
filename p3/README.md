@@ -15,6 +15,7 @@ _Brief list summarizing the features of your app_
 - [Nav Bar](https://www.w3schools.com/css/css_navbar.asp)
 - [Set up vuetify](https://vuetifyjs.com/en/getting-started/quick-start)
 - [Autocomplete field](https://vuetifyjs.com/en/components/autocompletes)
+- [Text field input](https://vuetifyjs.com/en/components/text-fields)
 
 ## Notes for instructor
 
