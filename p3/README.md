@@ -13,6 +13,8 @@ _Brief list summarizing the features of your app_
 - [Brewery API](https://www.openbrewerydb.org/)
 - [TicketMaster API](https://developer.ticketmaster.com/products-and-docs/apis/getting-started/)
 - [Nav Bar](https://www.w3schools.com/css/css_navbar.asp)
+- [Set up vuetify](https://vuetifyjs.com/en/getting-started/quick-start)
+- [Autocomplete field](https://vuetifyjs.com/en/components/autocompletes)
 
 ## Notes for instructor
 

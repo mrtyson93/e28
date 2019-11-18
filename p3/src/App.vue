@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <v-app>
-      <h1>City Information</h1>
+      <br />
+      <h1>City Explorer</h1>
+      <br />
       <nav>
         <ul>
           <li v-for="link in links" :key="link">
