@@ -19,7 +19,7 @@ export default {
   name: 'app',
   data: function() {
     return {
-      links: ['weather', 'breweries', 'events']
+      links: ['Home', 'Weather', 'Breweries', 'Events']
     };
   }
 };

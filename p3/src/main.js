@@ -1,37 +1,42 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App.vue';
 import VueRouter from 'vue-router';
-import WeatherPage from "./components/pages/WeatherPage.vue";
-import BreweryPage from "./components/pages/BreweryPage.vue";
-import EventsPage from "./components/pages/EventsPage.vue";
-
-
+import WeatherPage from './components/pages/WeatherPage.vue';
+import BreweryPage from './components/pages/BreweryPage.vue';
+import EventsPage from './components/pages/EventsPage.vue';
+import HomePage from './components/pages/HomePage.vue';
 
 Vue.use(VueRouter);
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-const routes = [{
+const routes = [
+  {
+    path: '/',
+    component: HomePage,
+    name: 'Home'
+  },
+  {
     path: '/weather',
     component: WeatherPage,
-    name: 'weather',
+    name: 'Weather'
   },
   {
     path: '/breweries',
     component: BreweryPage,
-    name: 'breweries'
+    name: 'Breweries'
   },
   {
     path: '/events',
     component: EventsPage,
-    name: 'events'
+    name: 'Events'
   }
-]
+];
 
 const router = new VueRouter({
   routes: routes,
   mode: 'history'
-})
+});
 new Vue({
   router: router,
-  render: h => h(App),
-}).$mount('#app')
+  render: h => h(App)
+}).$mount('#app');

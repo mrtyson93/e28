@@ -18,7 +18,7 @@ export default {
   mounted() {
     this.products = axios
       .get(
-        'https://app.ticketmaster.com/discovery/v2/events.json?postalCode=02139&radius=apikey=yVOXVXgMX7DMiA9It9NTYN48i9jBbwrB'
+        'https://app.ticketmaster.com/discovery/v2/events.json?postalCode=02139&radius=3&apikey=yVOXVXgMX7DMiA9It9NTYN48i9jBbwrB'
       )
       .then(response => {
         this.products = response.data;

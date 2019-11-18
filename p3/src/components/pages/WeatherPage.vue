@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>Weather Page</p>
-    {{ products }}
+    {{ weather }}
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   name: 'WeatherPage',
   data: function() {
     return {
-      products: null
+      weather: null
     };
   },
   mounted() {
@@ -21,7 +21,7 @@ export default {
         'http://api.openweathermap.org/data/2.5/weather?zip=02139,us&units=imperial&APPID=a8c08712ba7a89275fe576693ce14fa3'
       )
       .then(response => {
-        this.products = response.data;
+        this.weather = response.data;
       });
   }
 };
