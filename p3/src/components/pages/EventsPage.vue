@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Weather Page</p>
+    <p>Events Page</p>
     {{ products }}
   </div>
 </template>
@@ -9,7 +9,7 @@
 const axios = require('axios');
 
 export default {
-  name: 'WeatherPage',
+  name: 'EventsPage',
   data: function() {
     return {
       products: null
@@ -18,7 +18,7 @@ export default {
   mounted() {
     this.products = axios
       .get(
-        'http://api.openweathermap.org/data/2.5/weather?zip=02139,us&units=imperial&APPID=a8c08712ba7a89275fe576693ce14fa3'
+        'https://app.ticketmaster.com/discovery/v2/events.json?postalCode=02139&radius=apikey=yVOXVXgMX7DMiA9It9NTYN48i9jBbwrB'
       )
       .then(response => {
         this.products = response.data;

@@ -9,7 +9,9 @@ _Brief list summarizing the features of your app_
 
 ## Outside resources
 
-_Your list of outside resources go here._
+- [OpenWeather API](https://openweathermap.org/current)
+- [Brewery API](https://www.openbrewerydb.org/)
+- [TicketMaster API](https://developer.ticketmaster.com/products-and-docs/apis/getting-started/)
 
 ## Notes for instructor
 
