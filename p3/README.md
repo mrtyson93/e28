@@ -12,7 +12,7 @@ _Brief list summarizing the features of your app_
 - [OpenWeather API](https://openweathermap.org/current)
 - [Brewery API](https://www.openbrewerydb.org/)
 - [TicketMaster API](https://developer.ticketmaster.com/products-and-docs/apis/getting-started/)
-- [Nav Bar](https://www.w3schools.com/css/css_navbar.asp)
+- [Nav Bar](https://vuetifyjs.com/en/components/toolbars)
 - [Set up vuetify](https://vuetifyjs.com/en/getting-started/quick-start)
 - [Autocomplete field](https://vuetifyjs.com/en/components/autocompletes)
 - [Text field input](https://vuetifyjs.com/en/components/text-fields)
