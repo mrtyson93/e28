@@ -2,7 +2,7 @@
   <div id="app">
     <v-app>
       <br />
-      <h1>City Explorer</h1>
+      <h1>USA City Explorer</h1>
       <br />
       <nav>
         <ul>

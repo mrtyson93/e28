@@ -25,7 +25,8 @@ export default {
     return {
       jsonResponseBool: false,
       cities: [],
-      city: null
+      city: null,
+      zipCode: null
     };
   },
   mounted() {

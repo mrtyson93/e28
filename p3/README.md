@@ -16,6 +16,7 @@ _Brief list summarizing the features of your app_
 - [Set up vuetify](https://vuetifyjs.com/en/getting-started/quick-start)
 - [Autocomplete field](https://vuetifyjs.com/en/components/autocompletes)
 - [Text field input](https://vuetifyjs.com/en/components/text-fields)
+- [List of us cities and zip codes](https://simplemaps.com/data/us-zips)
 
 ## Notes for instructor
 
