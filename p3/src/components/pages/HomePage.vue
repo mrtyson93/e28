@@ -2,7 +2,11 @@
   <div>
     <br />
     <span v-if="jsonResponseBool">
-      <v-text-field label="Zip Code" outlined="true" rounded="true">
+      <v-text-field
+        label="Zip Code"
+        :outlined="trueBool"
+        :rounded="trueBool"
+      >
       </v-text-field>
       <h2>Or</h2>
       <br />
@@ -10,15 +14,15 @@
         label="City"
         v-model="city"
         :items="cities"
-        outlined="true"
-        rounded="true"
+        :outlined="trueBool"
+        :rounded="trueBool"
       ></v-autocomplete>
     </span>
   </div>
 </template>
 
 <script>
-const axios = require('axios');
+const axios = require("axios");
 
 export default {
   data() {
@@ -26,12 +30,14 @@ export default {
       jsonResponseBool: false,
       cities: [],
       city: null,
-      zipCode: null
+      zipCode: null,
+      trueBool: true,
+      falseBool: false
     };
   },
   mounted() {
     this.cities = axios
-      .get('https://my-json-server.typicode.com/mrtyson93/e28-p3-cities/cities')
+      .get("https://my-json-server.typicode.com/mrtyson93/e28-p3-cities/cities")
       .then(response => {
         this.cities = response.data.hello;
         this.jsonResponseBool = true;

@@ -1,18 +1,25 @@
 <template>
   <div id="app">
     <v-app>
-      <br />
-      <v-toolbar short="true" exension-height="10">
-        <v-toolbar-title>USA City Explorer</v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-toolbar-items>
-          <v-btn v-for="link in links" :key="link">
-            <router-link exact :to="{ name: link }">
-              {{ link }}
-            </router-link>
-          </v-btn>
-        </v-toolbar-items>
-      </v-toolbar>
+      <div>
+        <v-toolbar>
+          <v-toolbar-title>USA City Explorer</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-toolbar-items>
+            <v-btn
+              v-for="link in links"
+              :key="link"
+            >
+              <router-link
+                exact
+                :to="{ name: link }"
+              >
+                {{ link }}
+              </router-link>
+            </v-btn>
+          </v-toolbar-items>
+        </v-toolbar>
+      </div>
       <router-view></router-view>
     </v-app>
   </div>
@@ -20,15 +27,15 @@
 
 <script>
 export default {
-  name: 'app',
+  name: "app",
   data: function() {
     return {
-      links: ['Home', 'Weather', 'Breweries', 'Events']
+      links: ["Home", "Weather", "Breweries", "Events"]
     };
   }
 };
 </script>
 
 <style lang="scss">
-@import './assets/css/style.css';
+@import "./assets/css/style.css";
 </style>
