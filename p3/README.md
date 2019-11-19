@@ -20,4 +20,4 @@ _Brief list summarizing the features of your app_
 
 ## Notes for instructor
 
-_Any notes for me to refer to while grading; if none, omit this section._
+My db.json files was too big to host on the example json server, so I had to host it locally by installing the npm json-server package.
