@@ -3,7 +3,7 @@
     <v-app>
       <div>
         <v-toolbar>
-          <v-toolbar-title>USA City Explorer</v-toolbar-title>
+          <v-toolbar-title>USA State Capital Explorer</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-toolbar-items>
             <v-btn
