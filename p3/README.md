@@ -13,9 +13,9 @@ _Brief list summarizing the features of your app_
 - [Brewery API](https://www.openbrewerydb.org/)
 - [TicketMaster API](https://developer.ticketmaster.com/products-and-docs/apis/getting-started/)
 - [Set up vuetify](https://vuetifyjs.com/en/getting-started/quick-start)
-- [Nav Bar](https://vuetifyjs.com/en/components/toolbars)
-- [Autocomplete field](https://vuetifyjs.com/en/components/autocompletes)
-- [Text field input](https://vuetifyjs.com/en/components/text-fields)
+- [v-toolbar](https://vuetifyjs.com/en/components/toolbars)
+- [v-autocomplete](https://vuetifyjs.com/en/components/autocompletes)
+- [v-card](https://vuetifyjs.com/en/components/cards)
 - [List of us cities and zip codes](https://simplemaps.com/data/us-zips)
 
 ## Notes for instructor

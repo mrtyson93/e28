@@ -1,21 +1,23 @@
 <template>
   <div>
     <br>
-    <v-card dark>
-      <v-img
-        :src="iconUrl"
-        height="100px"
-        :contain="trueBool"
-      >
-        <v-card-title>Weather</v-card-title>
-      </v-img>
-      <v-card-subtitle class="title text-uppercase">{{weather.weather[0].description}}</v-card-subtitle>
-      <v-card-text>
-        <div class="body-1">Temperature: {{weather.main.temp}}&#176;, Min: {{weather.main.temp_min}}, Max: {{weather.main.temp_max}}</div>
-        <div class="body-1">Humidity: {{weather.main.humidity}}&#37;</div>
-        <div class="body-1">Wind: {{weather.wind.speed}} <i>mph</i></div>
-      </v-card-text>
-    </v-card>
+    <div v-if="jsonResponseBool">
+      <v-card dark>
+        <v-img
+          :src="iconUrl"
+          height="100px"
+          :contain="trueBool"
+        >
+          <v-card-title>Weather</v-card-title>
+        </v-img>
+        <v-card-subtitle class="title text-uppercase">{{weather.weather[0].description}}</v-card-subtitle>
+        <v-card-text>
+          <div class="body-1">Temperature: {{weather.main.temp}}&#176;, Min: {{weather.main.temp_min}}, Max: {{weather.main.temp_max}}</div>
+          <div class="body-1">Humidity: {{weather.main.humidity}}&#37;</div>
+          <div class="body-1">Wind: {{weather.wind.speed}} <i>mph</i></div>
+        </v-card-text>
+      </v-card>
+    </div>
   </div>
 </template>
 
@@ -28,7 +30,8 @@ export default {
     return {
       weather: null,
       trueBool: true,
-      iconUrl: null
+      iconUrl: null,
+      jsonResponseBool: false
     };
   },
   mounted() {
@@ -42,6 +45,7 @@ export default {
           "http://openweathermap.org/img/wn/" +
           response.data.weather[0].icon +
           "@2x.png";
+        this.jsonResponseBool = true;
       });
   }
 };
