@@ -1,7 +1,12 @@
 <template>
   <div>
     <br>
-    <div v-if="jsonResponseBool">
+    <div v-if="!searched">
+      <v-card dark>
+        <v-card-title>No city searched. Go back to Home page and select a city.</v-card-title>
+      </v-card>
+    </div>
+    <div v-if="jsonResponseBool && searched">
       <div v-if="hasBreweries">
         <v-card>
           <v-card-title>Breweries</v-card-title>
@@ -44,21 +49,27 @@ export default {
       breweries: null,
       trueBool: true,
       jsonResponseBool: false,
-      hasBreweries: false
+      hasBreweries: false,
+      searched: false
     };
   },
   mounted() {
-    this.breweries = axios
-      .get(
-        "https://api.openbrewerydb.org/breweries?by_state=massachusetts&by_city=boston"
-      )
-      .then(response => {
+    if (localStorage.getItem("searched") == "true") {
+      this.searched = true;
+      let axiosURL =
+        "https://api.openbrewerydb.org/breweries?by_state=" +
+        localStorage.getItem("state") +
+        "&by_city=" +
+        localStorage.getItem("city");
+
+      this.breweries = axios.get(axiosURL).then(response => {
         if (response.data.length > 0) {
           this.breweries = response.data;
           this.hasBreweries = true;
         }
         this.jsonResponseBool = true;
       });
+    }
   }
 };
 </script>

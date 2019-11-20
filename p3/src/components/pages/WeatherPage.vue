@@ -1,7 +1,12 @@
 <template>
   <div>
     <br>
-    <div v-if="jsonResponseBool">
+    <div v-if="!searched">
+      <v-card dark>
+        <v-card-title>No city searched. Go back to Home page and select a city.</v-card-title>
+      </v-card>
+    </div>
+    <div v-if="jsonResponseBool && searched">
       <v-card dark>
         <v-img
           :src="iconUrl"
@@ -31,15 +36,19 @@ export default {
       weather: null,
       trueBool: true,
       iconUrl: null,
-      jsonResponseBool: false
+      jsonResponseBool: false,
+      searched: false
     };
   },
   mounted() {
-    this.weather = axios
-      .get(
-        "http://api.openweathermap.org/data/2.5/weather?zip=02139,us&units=imperial&APPID=a8c08712ba7a89275fe576693ce14fa3"
-      )
-      .then(response => {
+    if (localStorage.getItem("searched") == "true") {
+      this.searched = true;
+      let axiosURL =
+        "http://api.openweathermap.org/data/2.5/weather?zip=" +
+        localStorage.getItem("zip") +
+        ",us&units=imperial&APPID=a8c08712ba7a89275fe576693ce14fa3";
+
+      this.weather = axios.get(axiosURL).then(response => {
         this.weather = response.data;
         this.iconUrl =
           "http://openweathermap.org/img/wn/" +
@@ -47,6 +56,7 @@ export default {
           "@2x.png";
         this.jsonResponseBool = true;
       });
+    }
   }
 };
 </script>

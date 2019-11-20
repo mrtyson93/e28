@@ -1,7 +1,12 @@
 <template>
   <div>
     <br>
-    <div v-if="jsonResponseBool">
+    <div v-if="!searched">
+      <v-card dark>
+        <v-card-title>No city searched. Go back to Home page and select a city.</v-card-title>
+      </v-card>
+    </div>
+    <div v-if="jsonResponseBool && searched">
       <div v-if="hasEvents">
         <v-card>
           <v-card-title>Events</v-card-title>
@@ -44,21 +49,26 @@ export default {
       events: null,
       jsonResponseBool: false,
       trueBool: true,
-      hasEvents: false
+      hasEvents: false,
+      searched: false
     };
   },
   mounted() {
-    this.events = axios
-      .get(
-        "https://app.ticketmaster.com/discovery/v2/events.json?postalCode=02139&radius=3&apikey=yVOXVXgMX7DMiA9It9NTYN48i9jBbwrB&sort=date,asc"
-      )
-      .then(response => {
+    if (localStorage.getItem("searched") == "true") {
+      this.searched = true;
+      let axiosURL =
+        "https://app.ticketmaster.com/discovery/v2/events.json?postalCode=" +
+        localStorage.getItem("zip") +
+        "&radius=3&apikey=yVOXVXgMX7DMiA9It9NTYN48i9jBbwrB&sort=date,asc";
+
+      this.events = axios.get(axiosURL).then(response => {
         if (response.data.page.totalElements != 0) {
           this.events = response.data._embedded.events;
           this.hasEvents = true;
         }
         this.jsonResponseBool = true;
       });
+    }
   }
 };
 </script>
