@@ -21,6 +21,28 @@
         >Search</v-btn>
       </div>
     </span>
+    <v-dialog v-model="badSearch" max-width="290">
+      <v-card>
+        <v-card-title
+          class="headline grey lighten-2"
+          primary-title
+        >
+          Empty Search
+        </v-card-title>
+        <v-card-text>You must choose a city before searching.</v-card-text>
+        <v-divider></v-divider>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            text
+            @click="badSearch = false"
+          >
+            Ok
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -36,7 +58,8 @@ export default {
       cityState: null,
       zipCode: null,
       trueBool: true,
-      falseBool: false
+      falseBool: false,
+      badSearch: false
     };
   },
   methods: {
@@ -49,7 +72,7 @@ export default {
         localStorage.setItem("state", cityStateSplit[1]);
         localStorage.setItem("zip", this.zips[cityStateSplit[0]]);
       } else {
-        alert("enter a city");
+        this.badSearch = true;
       }
     }
   },

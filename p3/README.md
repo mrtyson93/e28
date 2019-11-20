@@ -16,7 +16,7 @@ _Brief list summarizing the features of your app_
 - [v-toolbar](https://vuetifyjs.com/en/components/toolbars)
 - [v-autocomplete](https://vuetifyjs.com/en/components/autocompletes)
 - [v-card](https://vuetifyjs.com/en/components/cards)
-- [List of us cities and zip codes](https://simplemaps.com/data/us-zips)
+- [v-dialog](https://vuetifyjs.com/en/components/dialogs#modal) 
 
 ## Notes for instructor
 
