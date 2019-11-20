@@ -32,6 +32,7 @@ export default {
     return {
       jsonResponseBool: false,
       cities: [],
+      zips: [],
       cityState: null,
       zipCode: null,
       trueBool: true,
@@ -42,11 +43,11 @@ export default {
     search: function() {
       if (this.cityState != null) {
         localStorage.setItem("searched", true);
-        let cityStateSplit = this.cityState.split(", ");
 
-        localStorage.setItem("zip", "02139");
+        let cityStateSplit = this.cityState.split(", ");
         localStorage.setItem("city", cityStateSplit[0]);
         localStorage.setItem("state", cityStateSplit[1]);
+        localStorage.setItem("zip", this.zips[cityStateSplit[0]]);
       } else {
         alert("enter a city");
       }
@@ -58,6 +59,10 @@ export default {
     }
     this.cities = axios.get("http://localhost:3000/cities").then(response => {
       this.cities = response.data;
+      this.jsonResponseBool = true;
+    });
+    this.zips = axios.get("http://localhost:3000/zips").then(response => {
+      this.zips = response.data;
       this.jsonResponseBool = true;
     });
   }
