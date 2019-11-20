@@ -10,6 +10,15 @@
         :outlined="trueBool"
         :rounded="trueBool"
       ></v-autocomplete>
+      <div class="text-center">
+        <v-btn
+          rounded
+          color="primary"
+          dark
+          :left="trueBool"
+          :absolute="trueBool"
+        >Search</v-btn>
+      </div>
     </span>
   </div>
 </template>
