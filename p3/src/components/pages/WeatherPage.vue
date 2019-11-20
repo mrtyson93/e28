@@ -13,11 +13,11 @@
           height="100px"
           :contain="trueBool"
         >
-          <v-card-title>Weather</v-card-title>
+          <v-card-title>Weather: {{city}}, {{state}}</v-card-title>
         </v-img>
         <v-card-subtitle class="title text-uppercase">{{weather.weather[0].description}}</v-card-subtitle>
         <v-card-text>
-          <div class="body-1">Temperature: {{weather.main.temp}}&#176;, Min: {{weather.main.temp_min}}, Max: {{weather.main.temp_max}}</div>
+          <div class="body-1">Temperature: {{weather.main.temp}}&#8457;, Min: {{weather.main.temp_min}}&#8457;, Max: {{weather.main.temp_max}}&#8457;</div>
           <div class="body-1">Humidity: {{weather.main.humidity}}&#37;</div>
           <div class="body-1">Wind: {{weather.wind.speed}} <i>mph</i></div>
         </v-card-text>
@@ -37,7 +37,9 @@ export default {
       trueBool: true,
       iconUrl: null,
       jsonResponseBool: false,
-      searched: false
+      searched: false,
+      city: null,
+      state: null
     };
   },
   mounted() {
@@ -48,6 +50,8 @@ export default {
         localStorage.getItem("zip") +
         ",us&units=imperial&APPID=a8c08712ba7a89275fe576693ce14fa3";
 
+      this.city = localStorage.getItem("city");
+      this.state = localStorage.getItem("state");
       this.weather = axios.get(axiosURL).then(response => {
         this.weather = response.data;
         this.iconUrl =

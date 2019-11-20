@@ -9,7 +9,7 @@
     <div v-if="jsonResponseBool && searched">
       <div v-if="hasEvents">
         <v-card>
-          <v-card-title>Events</v-card-title>
+          <v-card-title>Events: {{city}}, {{state}}</v-card-title>
         </v-card>
         <v-card
           class="ma-4"
@@ -33,7 +33,7 @@
         v-else
         dark
       >
-        <v-card-title>No Events</v-card-title>
+        <v-card-title>No Events in {{city}}, {{state}}</v-card-title>
       </v-card>
     </div>
   </div>
@@ -50,7 +50,9 @@ export default {
       jsonResponseBool: false,
       trueBool: true,
       hasEvents: false,
-      searched: false
+      searched: false,
+      city: null,
+      state: null
     };
   },
   mounted() {
@@ -59,8 +61,10 @@ export default {
       let axiosURL =
         "https://app.ticketmaster.com/discovery/v2/events.json?postalCode=" +
         localStorage.getItem("zip") +
-        "&radius=3&apikey=yVOXVXgMX7DMiA9It9NTYN48i9jBbwrB&sort=date,asc";
+        "&radius=5&apikey=yVOXVXgMX7DMiA9It9NTYN48i9jBbwrB&sort=date,asc";
 
+      this.city = localStorage.getItem("city");
+      this.state = localStorage.getItem("state");
       this.events = axios.get(axiosURL).then(response => {
         if (response.data.page.totalElements != 0) {
           this.events = response.data._embedded.events;

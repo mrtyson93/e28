@@ -9,7 +9,7 @@
     <div v-if="jsonResponseBool && searched">
       <div v-if="hasBreweries">
         <v-card>
-          <v-card-title>Breweries</v-card-title>
+          <v-card-title>Breweries: {{city}}, {{state}}</v-card-title>
         </v-card>
         <v-card
           class="ma-4"
@@ -33,7 +33,7 @@
         v-else
         dark
       >
-        <v-card-title>No Breweries</v-card-title>
+        <v-card-title>No Breweries in {{city}}, {{state}}</v-card-title>
       </v-card>
     </div>
   </div>
@@ -50,7 +50,9 @@ export default {
       trueBool: true,
       jsonResponseBool: false,
       hasBreweries: false,
-      searched: false
+      searched: false,
+      city: null,
+      state: null
     };
   },
   mounted() {
@@ -62,6 +64,8 @@ export default {
         "&by_city=" +
         localStorage.getItem("city");
 
+      this.city = localStorage.getItem("city");
+      this.state = localStorage.getItem("state");
       this.breweries = axios.get(axiosURL).then(response => {
         if (response.data.length > 0) {
           this.breweries = response.data;
