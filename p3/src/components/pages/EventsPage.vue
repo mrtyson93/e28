@@ -3,7 +3,7 @@
     <br>
     <div v-if="!searched">
       <v-card dark>
-        <v-card-title>No city searched. Go back to Home page and select a city.</v-card-title>
+        <v-card-title>No city searched. Go back to Search page and select a city.</v-card-title>
       </v-card>
     </div>
     <div v-if="jsonResponseBool && searched">

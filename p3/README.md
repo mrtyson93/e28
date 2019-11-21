@@ -17,6 +17,7 @@ _Brief list summarizing the features of your app_
 - [v-autocomplete](https://vuetifyjs.com/en/components/autocompletes)
 - [v-card](https://vuetifyjs.com/en/components/cards)
 - [v-dialog](https://vuetifyjs.com/en/components/dialogs#modal) 
+- [Loading circle](https://vuetifyjs.com/en/components/progress-circular)
 
 ## Notes for instructor
 

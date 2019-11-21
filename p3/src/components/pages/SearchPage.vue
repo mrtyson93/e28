@@ -17,11 +17,14 @@
           dark
           :left="trueBool"
           :absolute="trueBool"
-          @click = 'search'
+          @click='search'
         >Search</v-btn>
       </div>
     </span>
-    <v-dialog v-model="badSearch" max-width="290">
+    <v-dialog
+      v-model="badSearch"
+      max-width="290"
+    >
       <v-card>
         <v-card-title
           class="headline grey lighten-2"
@@ -43,6 +46,11 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <v-progress-circular
+      indeterminate
+      color="primary"
+      v-show="loading"
+    ></v-progress-circular>
   </div>
 </template>
 
@@ -59,24 +67,28 @@ export default {
       zipCode: null,
       trueBool: true,
       falseBool: false,
-      badSearch: false
+      badSearch: false,
+      loading: false
     };
   },
   methods: {
     search: function() {
       if (this.cityState != null) {
+        this.loading = true;
         localStorage.setItem("searched", true);
 
         let cityStateSplit = this.cityState.split(", ");
         localStorage.setItem("city", cityStateSplit[0]);
         localStorage.setItem("state", cityStateSplit[1]);
         localStorage.setItem("zip", this.zips[cityStateSplit[0]]);
+        window.location = "weather";
       } else {
         this.badSearch = true;
       }
     }
   },
   mounted() {
+    this.loading = false;
     if (!localStorage.getItem("searched")) {
       localStorage.setItem("searched", false);
     }

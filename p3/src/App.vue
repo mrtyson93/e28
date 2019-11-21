@@ -30,7 +30,7 @@ export default {
   name: "app",
   data: function() {
     return {
-      links: ["Home", "Weather", "Breweries", "Events"]
+      links: ["Search", "Weather", "Breweries", "Events"]
     };
   }
 };
