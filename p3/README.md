@@ -5,7 +5,13 @@
 
 ## Outline of features
 
-_Brief list summarizing the features of your app_
+- Pulls list of cities from mock server to give you a list of cities to search.
+- Autocompletes the list in the search box based off of what you type.
+- Modal popup if nothing is searched.
+- Stores search in local storage and gets more info from mock server to use.
+- Weather page which pulls data from public weather api.
+- Brewery page which pulls data from public brewery api.
+- Events page which puills data from public ticketmaster api.
 
 ## Outside resources
 
