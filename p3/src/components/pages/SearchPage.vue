@@ -37,11 +37,6 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <v-progress-circular
-      indeterminate
-      color="primary"
-      v-show="loading"
-    ></v-progress-circular>
   </div>
 </template>
 
@@ -58,14 +53,12 @@ export default {
       zipCode: null,
       trueBool: true,
       falseBool: false,
-      badSearch: false,
-      loading: false
+      badSearch: false
     };
   },
   methods: {
     search: function() {
       if (this.cityState != null) {
-        this.loading = true;
         localStorage.setItem('searched', true);
 
         let cityStateSplit = this.cityState.split(', ');
@@ -76,10 +69,17 @@ export default {
       } else {
         this.badSearch = true;
       }
+    },
+    getZips: function() {
+      this.zips = axios
+        .get('https://my-json-server.typicode.com/mrtyson93/e28-p3-cities/zips')
+        .then(response => {
+          this.zips = response.data;
+          this.jsonResponseBool = true;
+        });
     }
   },
   mounted() {
-    this.loading = false;
     if (!localStorage.getItem('searched')) {
       localStorage.setItem('searched', false);
     }
@@ -87,13 +87,7 @@ export default {
       .get('https://my-json-server.typicode.com/mrtyson93/e28-p3-cities/cities')
       .then(response => {
         this.cities = response.data;
-        this.jsonResponseBool = true;
-      });
-    this.zips = axios
-      .get('https://my-json-server.typicode.com/mrtyson93/e28-p3-cities/zips')
-      .then(response => {
-        this.zips = response.data;
-        this.jsonResponseBool = true;
+        this.getZips();
       });
   }
 };
