@@ -17,30 +17,21 @@
           dark
           :left="trueBool"
           :absolute="trueBool"
-          @click='search'
-        >Search</v-btn>
+          @click="search"
+          >Search</v-btn
+        >
       </div>
     </span>
-    <v-dialog
-      v-model="badSearch"
-      max-width="290"
-    >
+    <v-dialog v-model="badSearch" max-width="290">
       <v-card>
-        <v-card-title
-          class="headline grey lighten-2"
-          primary-title
-        >
+        <v-card-title class="headline grey lighten-2" primary-title>
           Empty Search
         </v-card-title>
         <v-card-text>You must choose a city before searching.</v-card-text>
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn
-            color="primary"
-            text
-            @click="badSearch = false"
-          >
+          <v-btn color="primary" text @click="badSearch = false">
             Ok
           </v-btn>
         </v-card-actions>
@@ -55,7 +46,7 @@
 </template>
 
 <script>
-const axios = require("axios");
+const axios = require('axios');
 
 export default {
   data() {
@@ -75,13 +66,13 @@ export default {
     search: function() {
       if (this.cityState != null) {
         this.loading = true;
-        localStorage.setItem("searched", true);
+        localStorage.setItem('searched', true);
 
-        let cityStateSplit = this.cityState.split(", ");
-        localStorage.setItem("city", cityStateSplit[0]);
-        localStorage.setItem("state", cityStateSplit[1]);
-        localStorage.setItem("zip", this.zips[cityStateSplit[0]]);
-        window.location = "weather";
+        let cityStateSplit = this.cityState.split(', ');
+        localStorage.setItem('city', cityStateSplit[0]);
+        localStorage.setItem('state', cityStateSplit[1]);
+        localStorage.setItem('zip', this.zips[cityStateSplit[0]]);
+        window.location.href = '/weather';
       } else {
         this.badSearch = true;
       }
@@ -89,17 +80,21 @@ export default {
   },
   mounted() {
     this.loading = false;
-    if (!localStorage.getItem("searched")) {
-      localStorage.setItem("searched", false);
+    if (!localStorage.getItem('searched')) {
+      localStorage.setItem('searched', false);
     }
-    this.cities = axios.get("http://localhost:3000/cities").then(response => {
-      this.cities = response.data;
-      this.jsonResponseBool = true;
-    });
-    this.zips = axios.get("http://localhost:3000/zips").then(response => {
-      this.zips = response.data;
-      this.jsonResponseBool = true;
-    });
+    this.cities = axios
+      .get('https://my-json-server.typicode.com/mrtyson93/e28-p3-cities/cities')
+      .then(response => {
+        this.cities = response.data;
+        this.jsonResponseBool = true;
+      });
+    this.zips = axios
+      .get('https://my-json-server.typicode.com/mrtyson93/e28-p3-cities/zips')
+      .then(response => {
+        this.zips = response.data;
+        this.jsonResponseBool = true;
+      });
   }
 };
 </script>

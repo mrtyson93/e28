@@ -22,9 +22,9 @@
 - [v-toolbar](https://vuetifyjs.com/en/components/toolbars)
 - [v-autocomplete](https://vuetifyjs.com/en/components/autocompletes)
 - [v-card](https://vuetifyjs.com/en/components/cards)
-- [v-dialog](https://vuetifyjs.com/en/components/dialogs#modal) 
+- [v-dialog](https://vuetifyjs.com/en/components/dialogs#modal)
 - [Loading circle](https://vuetifyjs.com/en/components/progress-circular)
 
 ## Notes for instructor
 
-My db.json files was too big to host on the example json server, so I had to cut the size of the amount of cities down to fit the mock server limits.
+My db.json files was too big to host on the mock json server, so I had to cut the size of the amount of cities down to fit the mock server limits.
