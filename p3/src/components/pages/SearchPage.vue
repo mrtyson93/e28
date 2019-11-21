@@ -72,7 +72,7 @@ export default {
         localStorage.setItem('city', cityStateSplit[0]);
         localStorage.setItem('state', cityStateSplit[1]);
         localStorage.setItem('zip', this.zips[cityStateSplit[0]]);
-        window.location.href = '/weather';
+        this.$router.push('/weather');
       } else {
         this.badSearch = true;
       }
