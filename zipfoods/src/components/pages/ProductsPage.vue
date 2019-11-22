@@ -11,20 +11,19 @@
 
 <script>
 import ShowProduct from "./../ShowProduct.vue";
-import * as app from "./../../app.js";
+//import * as app from "./../../app.js";
 
 export default {
   name: "ProductsPage",
   components: { ShowProduct },
   data: function() {
-    return {
-      products: null
-    };
+    return {};
   },
-  mounted() {
-    app.axios.get(app.config.api + "products").then(response => {
-      this.products = response.data;
-    });
+  mounted() {},
+  computed: {
+    products: function() {
+      return this.$store.state.products;
+    }
   }
 };
 </script>

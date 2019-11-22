@@ -11,13 +11,12 @@
 </template>
 
 <script>
-import * as app from "./../../app.js";
+//import * as app from "./../../app.js";
 
 export default {
   name: "CategoriesPage",
   data: function() {
     return {
-      products: null,
       categories: null
     };
   },
@@ -30,11 +29,13 @@ export default {
       this.categories = [...new Set(mergedCategories)].sort();
     }
   },
+  computed: {
+    products: function() {
+      return this.$store.state.products;
+    }
+  },
   mounted() {
-    app.axios.get(app.config.api + "products").then(response => {
-      this.products = response.data;
-      this.loadCategories();
-    });
+    this.loadCategories();
   }
 };
 </script>

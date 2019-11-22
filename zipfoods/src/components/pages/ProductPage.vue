@@ -34,15 +34,15 @@ export default {
   props: ["id"],
   data: function() {
     return {
-      product: null,
       addAlert: false
     };
   },
-  mounted() {
-    app.axios.get(app.config.api + "/products/" + this.id).then(response => {
-      this.product = response.data;
-    });
+  computed: {
+    product() {
+      return this.$store.getters.getProductById(this.id);
+    }
   },
+  mounted() {},
   methods: {
     addToCart: function(productId) {
       let cart = new app.Cart();
