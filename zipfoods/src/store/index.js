@@ -24,8 +24,8 @@ export default new Vuex.Store({
     },
     actions: {
         setProducts(context) {
-            app.axios.get(app.config.api + 'products').then(response => {
-                context.commit('setProducts', response.data);
+            app.axios.get('https://e28-zipfoods-mrtyson.firebaseio.com/products.json').then(response => {
+                context.commit('setProducts', response.data.slice(1));
             });
         }
     },
