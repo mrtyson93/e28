@@ -5,6 +5,7 @@
     <div v-if='items.length == 0'>No items</div>
 
     <ul
+      data-test="cart-contents"
       v-else-if='products.length > 0'
       class='cleanList'
     >
@@ -12,7 +13,7 @@
         v-for='item in items'
         :key='item.id'
       >
-        <button @click='removeFromCart(item.id)'>Remove</button>
+        <button data-test="remove-from-cart-button" @click='removeFromCart(item.id)'>Remove</button>
         {{ item.quantity }} x {{ getProductDetails(item.id)['name'] }}
       </li>
     </ul>

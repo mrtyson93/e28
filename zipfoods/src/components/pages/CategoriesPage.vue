@@ -3,6 +3,7 @@
     <h2>Categories</h2>
     <ul class="cleanList">
       <li
+        data-test="category-name"
         v-for="(category, id) in categories"
         :key="id"
       >{{ category }}</li>
@@ -16,26 +17,18 @@
 export default {
   name: "CategoriesPage",
   data: function() {
-    return {
-      categories: null
-    };
-  },
-  methods: {
-    loadCategories: function() {
-      let categories = this.products.map(product => product.categories);
-      let mergedCategories = [].concat.apply([], categories);
-
-      // Return unique, sorted categories
-      this.categories = [...new Set(mergedCategories)].sort();
-    }
+    return {};
   },
   computed: {
     products: function() {
       return this.$store.state.products;
+    },
+    categories: function() {
+      let categories = this.products.map(product => product.categories);
+      let mergedCategories = [].concat.apply([], categories);
+      // Return unique, sorted categories
+      return [...new Set(mergedCategories)].sort();
     }
-  },
-  mounted() {
-    this.loadCategories();
   }
 };
 </script>
