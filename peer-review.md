@@ -89,8 +89,8 @@ Notice how product was basically replaced with recipe. I would have liked to see
 
 ### Are there any best practices discussed in course material that you feel were not addressed in the code?
 
-All best practices appear to have been followed in the code. Well formatted, organized, no extraneous code.
++ All best practices appear to have been followed in the code. Well formatted, organized, no extraneous code.
 
 ### Do you have any additional comments not covered in the above questions?
 
-I'm beating a dead horse here, but I would have liked to see more effort put into this with an original idea. I would suggest doing so for P4, at the very least, so you can get experience developing your own ideas which will allow you to run into new obstacles to help you learn.
++ I'm beating a dead horse here, but I would have liked to see more effort put into this with an original idea. I would suggest doing so for P4, at the very least, so you can get experience developing your own ideas which will allow you to run into new obstacles to help you learn.
