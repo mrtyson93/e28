@@ -6,15 +6,18 @@
 
     <ul
       data-test="cart-contents"
-      v-else-if='products.length > 0'
+      v-else-if='products'
       class='cleanList'
     >
       <li
         v-for='item in items'
-        :key='item.id'
+        :key='item.slug '
       >
-        <button data-test="remove-from-cart-button" @click='removeFromCart(item.id)'>Remove</button>
-        {{ item.quantity }} x {{ getProductDetails(item.id)['name'] }}
+        <button
+          data-test="remove-from-cart-button"
+          @click='removeFromCart(item.slug)'
+        >Remove</button>
+        {{ item.quantity }} x {{ getProductDetails(item.slug)['name'] }}
       </li>
     </ul>
   </div>
@@ -31,8 +34,8 @@ export default {
     };
   },
   methods: {
-    getProductDetails(productId) {
-      return this.products.find(({ id }) => id === productId);
+    getProductDetails(productSlug) {
+      return this.$store.getters.getProductBySlug(productSlug);
     },
     removeFromCart: function(productId) {
       this.cart.remove(productId);

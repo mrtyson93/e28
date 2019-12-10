@@ -1,9 +1,13 @@
-export { default as Cart } from './Cart';
+export {
+    default as Cart
+}
+from './Cart';
 
 export const axios = require('axios');
 
+
 export const config = {
-    api: 'https://my-json-server.typicode.com/mrtyson93/e28-zipfoods-api/',
+    api: process.env.VUE_APP_API_URL
 }
 
 export let store = {

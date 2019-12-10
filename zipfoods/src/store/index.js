@@ -1,39 +1,43 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-import * as app from "./../app.js";
+import * as app from './../app.js';
 
-
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
-    state: {
-        cartCount: 0,
-        products: [],
+  state: {
+    cartCount: 0,
+    products: null,
+  },
+  mutations: {
+    setCartCount(state, payload) {
+      state.cartCount = payload;
     },
-    mutations: {
-        setCartCount(state, payload) {
-            state.cartCount = payload;
-        },
-        updateCartCount(state, payload) {
-            state.cartCount += payload;
-        },
-        setProducts(state, payload) {
-            state.products = payload;
-        }
+    updateCartCount(state, payload) {
+      state.cartCount += payload;
     },
-    actions: {
-        setProducts(context) {
-            app.axios.get('https://e28-zipfoods-mrtyson.firebaseio.com/products.json').then(response => {
-                context.commit('setProducts', response.data.slice(1));
-            });
-        }
+    setProducts(state, payload) {
+      state.products = payload;
     },
-    getters: {
-        getProductById(state) {
-            return function (id) {
-                return state.products.find(product => product.id == id)
-            }
-        }
+    addProduct(state, payload) {
+      _.merge(state.products, payload);
     }
-})
+  },
+  actions: {
+    setProducts(context) {
+      app.axios.get(app.config.api + 'products.json').then(response => {
+        context.commit('setProducts', response.data);
+      });
+    }
+  },
+  getters: {
+    getProductBySlug(state) {
+      return function (slug) {
+        return _.find(state.products, {
+          slug: slug
+        });
+      };
+    }
+  }
+});

@@ -22,7 +22,7 @@ export default {
   name: "app",
   data: function() {
     return {
-      links: ["home", "products", "categories", "cart"]
+      links: ["home", "products", "categories", "cart", "create"]
     };
   },
   computed: {

@@ -1,28 +1,33 @@
 <template>
   <div
-    id='product-page'
-    v-if='product'
+    id="product-page"
+    v-if="product"
   >
     <h1 data-test="product-name">{{ product.name }}</h1>
     <img
-      v-if='product.id'
-      class='product-thumb'
-      :alt='"Product image of  " + product.name'
-      :src='"./../../assets/images/products/" + product.id + ".jpg"'
+      v-if="product.slug"
+      class="product-thumb"
+      :alt="'Product image of  ' + product.name"
+      :src='"./../../assets/images/products/" + product.slug + ".jpg"'
     />
-    <p class='description'>{{ product.description }}</p>
-    <div class='price'>${{ product.price }}</div>
+    <p class="description">{{ product.description }}</p>
+    <div class="price">${{ product.price }}</div>
 
-    <button data-test="add-to-cart-button" @click='addToCart(product.id)'>Add to cart</button>
+    <button
+      data-test="add-to-cart-button"
+      @click="addToCart(product.slug)"
+    >
+      Add to cart
+    </button>
 
-    <transition name='fade'>
+    <transition name="fade">
       <div
-        class='alert'
-        v-if='addAlert'
+        class="alert"
+        v-if="addAlert"
       >Your cart has been updated!</div>
     </transition>
 
-    <router-link :to='"/products"'>&larr; Return to all products</router-link>
+    <router-link :to="'/products'">&larr; Return to all products</router-link>
   </div>
 </template>
 
@@ -31,7 +36,7 @@ import * as app from "./../../app.js";
 
 export default {
   name: "ProductPage",
-  props: ["id"],
+  props: ["slug"],
   data: function() {
     return {
       addAlert: false
@@ -39,7 +44,7 @@ export default {
   },
   computed: {
     product() {
-      return this.$store.getters.getProductById(this.id);
+      return this.$store.getters.getProductBySlug(this.slug);
     }
   },
   mounted() {},
@@ -56,5 +61,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
