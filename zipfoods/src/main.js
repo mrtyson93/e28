@@ -7,7 +7,8 @@ import HomePage from './components/pages/HomePage.vue';
 import CategoriesPage from './components/pages/CategoriesPage.vue';
 import CartPage from './components/pages/CartPage.vue';
 import ProductCreatePage from './components/pages/ProductCreatePage.vue';
-
+import './filters.js'
+import Vuelidate from 'vuelidate';
 /* eslint-disable no-unused-vars */
 const _ = require('lodash');
 /* eslint-enable no-unused-vars */
@@ -15,6 +16,7 @@ const _ = require('lodash');
 import store from './store';
 
 Vue.use(VueRouter);
+Vue.use(Vuelidate);
 Vue.config.productionTip = false;
 
 const routes = [{
