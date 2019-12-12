@@ -1,7 +1,7 @@
 <template>
   <div>
     <br />
-    <span v-if="jsonResponseBool">
+    <span v-if="haveCityInfo">
       <br />
       <v-autocomplete
         label="City"
@@ -50,14 +50,9 @@
 </template>
 
 <script>
-const axios = require("axios");
-
 export default {
   data() {
     return {
-      jsonResponseBool: false,
-      cities: [],
-      zips: [],
       cityState: null,
       zipCode: null,
       trueBool: true,
@@ -78,26 +73,24 @@ export default {
       } else {
         this.badSearch = true;
       }
-    },
-    getZips: function() {
-      this.zips = axios
-        .get("https://e28-p4-mtyson.firebaseio.com/zips.json")
-        .then(response => {
-          this.zips = response.data;
-          this.jsonResponseBool = true;
-        });
     }
   },
   mounted() {
     if (!localStorage.getItem("searched")) {
       localStorage.setItem("searched", false);
     }
-    this.cities = axios
-      .get("https://e28-p4-mtyson.firebaseio.com/cities.json")
-      .then(response => {
-        this.cities = response.data;
-        this.getZips();
-      });
+    this.$store.dispatch("setCitiesAndZips");
+  },
+  computed: {
+    cities: function() {
+      return this.$store.state.cities;
+    },
+    zips: function() {
+      return this.$store.state.zips;
+    },
+    haveCityInfo: function() {
+      return this.$store.state.haveCityInfo;
+    }
   }
 };
 </script>
