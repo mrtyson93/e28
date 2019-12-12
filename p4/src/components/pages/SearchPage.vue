@@ -18,6 +18,7 @@
           :left="trueBool"
           :absolute="trueBool"
           @click="search"
+          data-test="search-button"
           >Search</v-btn
         >
       </div>
