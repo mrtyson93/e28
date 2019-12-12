@@ -1,7 +1,7 @@
 <template>
   <div>
     <br />
-    <div v-if="!searched">
+    <div v-if="!searched" data-tests="no-city">
       <v-card dark>
         <v-card-title
           >No city searched. Go back to Search page and select a
@@ -39,6 +39,8 @@
 <script>
 const axios = require('axios');
 
+import * as app from './../../app.js';
+
 export default {
   name: 'WeatherPage',
   data: function() {
@@ -48,22 +50,20 @@ export default {
       iconUrl: null,
       jsonResponseBool: false,
       searched: false,
-      city: null,
-      state: null,
-      loading: false
+      loading: false,
+      currentCity: null
     };
   },
   mounted() {
-    if (localStorage.getItem('searched') == 'true') {
+    this.currentCity = new app.CurrentCity();
+
+    if (this.searchedStorage == 'true') {
       this.loading = true;
       this.searched = true;
       let axiosURL =
         'http://api.openweathermap.org/data/2.5/weather?zip=' +
-        localStorage.getItem('zip') +
+        this.zip +
         ',us&units=imperial&APPID=a8c08712ba7a89275fe576693ce14fa3';
-
-      this.city = localStorage.getItem('city');
-      this.state = localStorage.getItem('state');
       this.weather = axios.get(axiosURL).then(response => {
         this.weather = response.data;
         this.iconUrl =
@@ -73,6 +73,20 @@ export default {
         this.jsonResponseBool = true;
         this.loading = false;
       });
+    }
+  },
+  computed: {
+    city: function() {
+      return this.currentCity.getCity();
+    },
+    state: function() {
+      return this.currentCity.getState();
+    },
+    zip: function() {
+      return this.currentCity.getZip();
+    },
+    searchedStorage: function() {
+      return this.currentCity.getSearched();
     }
   }
 };

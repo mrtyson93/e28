@@ -54,6 +54,8 @@
 <script>
 const axios = require('axios');
 
+import * as app from './../../app.js';
+
 export default {
   name: 'EventsPage',
   data: function() {
@@ -63,22 +65,21 @@ export default {
       trueBool: true,
       hasEvents: false,
       searched: false,
-      city: null,
-      state: null,
-      loading: false
+      loading: false,
+      currentCity: null
     };
   },
   mounted() {
-    if (localStorage.getItem('searched') == 'true') {
+    this.currentCity = new app.CurrentCity();
+
+    if (this.searchedStorage == 'true') {
       this.loading = true;
       this.searched = true;
       let axiosURL =
         'https://app.ticketmaster.com/discovery/v2/events.json?postalCode=' +
-        localStorage.getItem('zip') +
+        this.zip +
         '&radius=5&apikey=yVOXVXgMX7DMiA9It9NTYN48i9jBbwrB&sort=date,asc';
 
-      this.city = localStorage.getItem('city');
-      this.state = localStorage.getItem('state');
       this.events = axios.get(axiosURL).then(response => {
         if (response.data.page.totalElements != 0) {
           this.events = response.data._embedded.events;
@@ -87,6 +88,20 @@ export default {
         this.jsonResponseBool = true;
         this.loading = false;
       });
+    }
+  },
+  computed: {
+    city: function() {
+      return this.currentCity.getCity();
+    },
+    state: function() {
+      return this.currentCity.getState();
+    },
+    zip: function() {
+      return this.currentCity.getZip();
+    },
+    searchedStorage: function() {
+      return this.currentCity.getSearched();
     }
   }
 };

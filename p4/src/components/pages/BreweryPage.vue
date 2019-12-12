@@ -54,6 +54,8 @@
 <script>
 const axios = require('axios');
 
+import * as app from './../../app.js';
+
 export default {
   name: 'BreweryPage',
   data: function() {
@@ -63,23 +65,21 @@ export default {
       jsonResponseBool: false,
       hasBreweries: false,
       searched: false,
-      city: null,
-      state: null,
-      loading: false
+      loading: false,
+      currentCity: null
     };
   },
   mounted() {
-    if (localStorage.getItem('searched') == 'true') {
+    this.currentCity = new app.CurrentCity();
+
+    if (this.searchedStorage == 'true') {
       this.loading = true;
       this.searched = true;
       let axiosURL =
         'https://api.openbrewerydb.org/breweries?by_state=' +
-        localStorage.getItem('state') +
+        this.state +
         '&by_city=' +
-        localStorage.getItem('city');
-
-      this.city = localStorage.getItem('city');
-      this.state = localStorage.getItem('state');
+        this.city;
       this.breweries = axios.get(axiosURL).then(response => {
         if (response.data.length > 0) {
           this.breweries = response.data;
@@ -88,6 +88,17 @@ export default {
         this.jsonResponseBool = true;
         this.loading = false;
       });
+    }
+  },
+  computed: {
+    city: function() {
+      return this.currentCity.getCity();
+    },
+    state: function() {
+      return this.currentCity.getState();
+    },
+    searchedStorage: function() {
+      return this.currentCity.getSearched();
     }
   }
 };
