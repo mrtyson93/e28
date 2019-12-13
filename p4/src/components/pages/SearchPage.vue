@@ -19,20 +19,29 @@
           :absolute="trueBool"
           @click="search"
           data-test="search-button"
-          >Search</v-btn
-        >
+        >Search</v-btn>
       </div>
     </span>
-    <v-dialog v-model="badSearch" max-width="290">
+    <v-dialog
+      v-model="badSearch"
+      max-width="290"
+    >
       <v-card>
-        <v-card-title class="headline grey lighten-2" primary-title>
+        <v-card-title
+          class="headline grey lighten-2"
+          primary-title
+        >
           Empty Search
         </v-card-title>
-        <v-card-text>You must choose a city before searching.</v-card-text>
+        <v-card-text data-test="no-city">You must choose a city before searching.</v-card-text>
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" text @click="badSearch = false">
+          <v-btn
+            color="primary"
+            text
+            @click="badSearch = false"
+          >
             Ok
           </v-btn>
         </v-card-actions>
@@ -42,7 +51,7 @@
 </template>
 
 <script>
-import * as app from './../../app.js';
+import * as app from "./../../app.js";
 
 export default {
   data() {
@@ -60,11 +69,11 @@ export default {
       if (this.cityState != null) {
         this.currentCity.setSearched(true);
 
-        let cityStateSplit = this.cityState.split(', ');
+        let cityStateSplit = this.cityState.split(", ");
         this.currentCity.setCity(cityStateSplit[0]);
         this.currentCity.setState(cityStateSplit[1]);
         this.currentCity.setZip(this.zips[cityStateSplit[0]]);
-        this.$router.push('/weather');
+        this.$router.push("/weather");
       } else {
         this.badSearch = true;
       }
@@ -76,7 +85,7 @@ export default {
     if (!this.currentCity.getSearched()) {
       this.currentCity.setSearched(false);
     }
-    this.$store.dispatch('setCitiesAndZips');
+    this.$store.dispatch("setCitiesAndZips");
   },
   computed: {
     cities: function() {

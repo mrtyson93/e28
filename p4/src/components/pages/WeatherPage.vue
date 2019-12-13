@@ -1,12 +1,13 @@
 <template>
   <div>
     <br />
-    <div v-if="!searched" data-tests="no-city">
+    <div
+      v-if="!searched"
+      data-tests="no-city"
+    >
       <v-card dark>
-        <v-card-title
-          >No city searched. Go back to Search page and select a
-          city.</v-card-title
-        >
+        <v-card-title>No city searched. Go back to Search page and select a
+          city.</v-card-title>
       </v-card>
     </div>
     <v-progress-circular
@@ -16,13 +17,17 @@
     ></v-progress-circular>
     <div v-if="jsonResponseBool && searched">
       <v-card dark>
-        <v-img :src="iconUrl" height="100px" :contain="trueBool">
+        <v-img
+          :src="iconUrl"
+          height="100px"
+          :contain="trueBool"
+        >
           <v-card-title>Weather: {{ city }}, {{ state }}</v-card-title>
         </v-img>
         <v-card-subtitle class="title text-uppercase">{{
           weather.weather[0].description
         }}</v-card-subtitle>
-        <v-card-text>
+        <v-card-text data-test="city-selected">
           <div class="body-1">
             Temperature: {{ weather.main.temp }}&#8457;, Min:
             {{ weather.main.temp_min }}&#8457;, Max:
@@ -37,12 +42,12 @@
 </template>
 
 <script>
-const axios = require('axios');
+const axios = require("axios");
 
-import * as app from './../../app.js';
+import * as app from "./../../app.js";
 
 export default {
-  name: 'WeatherPage',
+  name: "WeatherPage",
   data: function() {
     return {
       weather: null,
@@ -57,19 +62,19 @@ export default {
   mounted() {
     this.currentCity = new app.CurrentCity();
 
-    if (this.searchedStorage == 'true') {
+    if (this.searchedStorage == "true") {
       this.loading = true;
       this.searched = true;
       let axiosURL =
-        'http://api.openweathermap.org/data/2.5/weather?zip=' +
+        "http://api.openweathermap.org/data/2.5/weather?zip=" +
         this.zip +
-        ',us&units=imperial&APPID=a8c08712ba7a89275fe576693ce14fa3';
+        ",us&units=imperial&APPID=a8c08712ba7a89275fe576693ce14fa3";
       this.weather = axios.get(axiosURL).then(response => {
         this.weather = response.data;
         this.iconUrl =
-          'http://openweathermap.org/img/wn/' +
+          "http://openweathermap.org/img/wn/" +
           response.data.weather[0].icon +
-          '@2x.png';
+          "@2x.png";
         this.jsonResponseBool = true;
         this.loading = false;
       });
