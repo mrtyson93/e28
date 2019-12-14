@@ -9,7 +9,7 @@
 
 ## Outside resources
 
-- [Fixed Null Loader Error for Unit Testing](hhttps://github.com/vuetifyjs/vue-cli-plugin-vuetify/issues/101)
+- [Fixed Null Loader Error for Unit Testing](https://github.com/vuetifyjs/vue-cli-plugin-vuetify/issues/101)
 
 ## Notes for instructor
 
