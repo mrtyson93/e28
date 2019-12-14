@@ -7,8 +7,10 @@ import EventsPage from './components/pages/EventsPage.vue';
 import HomePage from './components/pages/SearchPage.vue';
 import vuetify from './plugins/vuetify';
 import store from './store'
+import Vuelidate from 'vuelidate'
 
 Vue.use(VueRouter);
+Vue.use(Vuelidate)
 Vue.config.productionTip = false;
 
 const routes = [{
